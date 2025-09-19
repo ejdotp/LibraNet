@@ -81,4 +81,8 @@ public class Library {
             return 0.0;
         }
     }
+
+    public Map<Integer, LibraryItem> getCatalog() {
+        return this.catalog;
+    }
 }
