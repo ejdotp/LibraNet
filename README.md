@@ -8,8 +8,7 @@ config:
   layout: elk
 ---
 classDiagram
-    direction TB
-
+direction TB
     class LibraryItem {
         <<abstract>>
         #int itemId
