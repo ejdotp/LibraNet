@@ -1,8 +1,14 @@
 # LibraNet
 
 ```mermaid
+---
+config:
+  theme: neo-dark
+  look: handDrawn
+  layout: elk
+---
 classDiagram
-    direction LR
+    direction TB
 
     class LibraryItem {
         <<abstract>>
