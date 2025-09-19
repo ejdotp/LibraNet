@@ -17,8 +17,8 @@ public class App {
             System.out.println("1. Display all items");
             System.out.println("2. Borrow an item");
             System.out.println("3. Return an item");
-            System.out.println("4. Open/Play an item");
-            System.out.println("5. Exit");
+            System.out.println("5. Calculate Fine");
+            System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
 
             try {
@@ -49,6 +49,12 @@ public class App {
                         }
                         break;
                     case 5:
+                        System.out.print("Enter the ID of the item to check fine for: ");
+                        int fineId = scanner.nextInt();
+                        double fineAmount = Lib.calculateFine(fineId);
+                        System.out.printf("Total fine for item %d is: %.2f%n", fineId, fineAmount);
+                        break;
+                    case 6:
                         System.out.println("Thank you for using LibraNet. Exiting.");
                         scanner.close();
                         return;

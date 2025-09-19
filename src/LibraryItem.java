@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.awt.Desktop;
+import java.time.LocalDate;
 
 public abstract class LibraryItem {
     protected int id;
@@ -8,6 +9,9 @@ public abstract class LibraryItem {
     protected String author;
     protected boolean isAvailable;
     protected String filePath;
+    protected LocalDate borrowDate;
+    protected LocalDate dueDate;
+    public static final int BORROWING_PERIOD_DAYS = 14;
 
     public LibraryItem(int id, String title, String author, String filePath) {
         this.id = id;
@@ -15,6 +19,8 @@ public abstract class LibraryItem {
         this.author = author;
         this.isAvailable = true;
         this.filePath = filePath;
+        this.borrowDate = null;
+        this.dueDate = null;
     }
 
     public boolean isAvailable() {
@@ -31,6 +37,14 @@ public abstract class LibraryItem {
 
     public String getTitle() {
         return title;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
     }
 
     public void openMedia() {

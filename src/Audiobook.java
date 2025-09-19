@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Audiobook extends LibraryItem implements Playable {
     private int durationInMinutes;
 
@@ -20,12 +22,16 @@ public class Audiobook extends LibraryItem implements Playable {
     @Override
     public void borrowItem() {
         this.isAvailable = false;
-        System.out.println("Audiobook '" + title + "' has been borrowed.");
+        this.borrowDate = LocalDate.now();
+        this.dueDate = this.borrowDate.plusDays(BORROWING_PERIOD_DAYS);
+        System.out.println("Audiobook '" + title + "' has been borrowed. Due Date: " + this.dueDate);
     }
 
     @Override
     public void returnItem() {
         this.isAvailable = true;
+        this.borrowDate = null;
+        this.dueDate = null;
         System.out.println("Audiobook '" + title + "' has been returned.");
     }
 }

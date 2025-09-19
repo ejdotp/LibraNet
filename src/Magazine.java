@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Magazine extends LibraryItem {
     private int issueNumber;
 
@@ -18,12 +20,16 @@ public class Magazine extends LibraryItem {
     @Override
     public void borrowItem() {
         this.isAvailable = false;
-        System.out.println("E-Magazine '" + title + "' has been borrowed.");
+        this.borrowDate = LocalDate.now();
+        this.dueDate = this.borrowDate.plusDays(BORROWING_PERIOD_DAYS);
+        System.out.println("E-Magazine '" + title + "' has been borrowed. Due Date: " + this.dueDate);
     }
 
     @Override
     public void returnItem() {
         this.isAvailable = true;
+        this.borrowDate = null;
+        this.dueDate = null;
         System.out.println("E-Magazine '" + title + "' has been returned.");
     }
 }

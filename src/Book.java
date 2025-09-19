@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Book extends LibraryItem {
     private int pageCount;
 
@@ -18,12 +20,16 @@ public class Book extends LibraryItem {
     @Override
     public void borrowItem() {
         this.isAvailable = false;
-        System.out.println(title + " has been borrowed.");
+        this.borrowDate = LocalDate.now();
+        this.dueDate = this.borrowDate.plusDays(BORROWING_PERIOD_DAYS);
+        System.out.println("Book '" + title + "' has been borrowed. Due Date: " + this.dueDate);
     }
 
     @Override
     public void returnItem() {
         this.isAvailable = true;
-        System.out.println(title + " has been returned.");
+        this.borrowDate = null;
+        this.dueDate = null;
+        System.out.println("Book '" + title + "' has been returned.");
     }
 }
