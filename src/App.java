@@ -7,9 +7,9 @@ public class App {
         Library Lib = new Library();
         Scanner scanner = new Scanner(System.in);
 
-        Lib.addItem(new Book(101, "The Hobbit", "J.R.R. Tolkien", 310, "media/books/The-Hobbit.pdf"));
-        Lib.addItem(new Audiobook(201, "Dune", "Frank Herbert", 1260, "media/audiobooks/Dune-Audiobook.mp3"));
-        Lib.addItem(new Magazine(301, "Tech Weekly", "Various", 154, "media/mags/Tech-Weekly.pdf"));
+        Lib.addItem(new Book(101, "Meow Book", "Me. Owmeow", 45, "media/books/Meow-Book.pdf"));
+        Lib.addItem(new Audiobook(201, "Harry Potter", "J.K. Rowling", 1320, "media/audiobooks/Harry-Potter.mp3"));
+        Lib.addItem(new Magazine(301, "Dog World", "Various", 102, "media/mags/Dog-World.pdf"));
         System.out.println("\nWelcome to the LibraNet System!");
 
         while (true) {

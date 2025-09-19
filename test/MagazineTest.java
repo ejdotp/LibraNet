@@ -13,7 +13,7 @@ public class MagazineTest {
 
     @BeforeEach
     public void setUp() {
-        magazine = new Magazine(301, "Tech Weekly", "Various", 154, "media/mags/Tech-Weekly.pdf");
+        magazine = new Magazine(301, "Dog World", "Various", 102, "media/mags/Dog-World.pdf");
         System.setOut(new PrintStream(outContent));
     }
 
@@ -25,7 +25,7 @@ public class MagazineTest {
     @Test
     public void testMagazineCreation() {
         assertEquals(301, magazine.getId());
-        assertEquals("Tech Weekly", magazine.getTitle());
+        assertEquals("Dog World", magazine.getTitle());
         assertTrue(magazine.isAvailable());
     }
 
@@ -57,7 +57,7 @@ public class MagazineTest {
     @Test
     public void testArchiveIssue() {
         magazine.archiveIssue();
-        String expectedOutput = "Archiving issue #154 of " + magazine.getTitle() + System.lineSeparator();
+        String expectedOutput = "Archiving issue #102 of " + magazine.getTitle() + System.lineSeparator();
         assertEquals(expectedOutput, outContent.toString());
     }
 }

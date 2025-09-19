@@ -13,7 +13,7 @@ public class BookTest {
 
     @BeforeEach
     public void setUp() {
-        book = new Book(101, "The Hobbit", "J.R.R. Tolkien", 310, "media/books/The-Hobbit.pdf");
+        book = new Book(101, "Meow Book", "Me. Owmeow", 45, "media/books/Meow-Book.pdf");
         System.setOut(new PrintStream(outContent));
     }
 
@@ -25,8 +25,8 @@ public class BookTest {
     @Test
     public void testBookCreation() {
         assertEquals(101, book.getId());
-        assertEquals("The Hobbit", book.getTitle());
-        assertEquals(310, book.getPageCount());
+        assertEquals("Meow Book", book.getTitle());
+        assertEquals(45, book.getPageCount());
         assertTrue(book.isAvailable());
     }
 

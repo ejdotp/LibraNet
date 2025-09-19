@@ -23,16 +23,16 @@ public class LibraryTest {
 
     @Test
     public void testAddItemAndFindById() {
-        Book book = new Book(101, "The Hobbit", "Tolkien", 310, "path/to/hobbit.pdf");
+        Book book = new Book(101, "Meow Book", "Me. Owmeow", 45, "media/books/Meow-Book.pdf");
         library.addItem(book);
         LibraryItem foundItem = library.findItemById(101);
         assertNotNull(foundItem, "Item should not be null.");
-        assertEquals("The Hobbit", foundItem.getTitle(), "The title should match.");
+        assertEquals("Meow Book", foundItem.getTitle(), "The title should match.");
     }
 
     @Test
     public void testBorrowAvailableItem() {
-        Book book = new Book(101, "The Hobbit", "Tolkien", 310, "path/to/hobbit.pdf");
+        Book book = new Book(101, "Meow Book", "Me. Owmeow", 45, "media/books/Meow-Book.pdf");
         library.addItem(book);
         library.borrowItem(101);
         assertFalse(book.isAvailable(), "Book should be marked as unavailable after borrowing.");
@@ -40,7 +40,7 @@ public class LibraryTest {
 
     @Test
     public void testReturnItem() {
-        Book book = new Book(101, "The Hobbit", "Tolkien", 310, "path/to/hobbit.pdf");
+        Book book = new Book(101, "Meow Book", "Me. Owmeow", 45, "media/books/Meow-Book.pdf");
         library.addItem(book);
         library.borrowItem(101);
         library.returnItem(101);
@@ -55,12 +55,12 @@ public class LibraryTest {
 
     @Test
     public void testBorrowUnavailableItem() {
-        Book book = new Book(101, "The Hobbit", "Tolkien", 310, "path/to/hobbit.pdf");
+        Book book = new Book(101, "Meow Book", "Me. Owmeow", 45, "media/books/Meow-Book.pdf");
         library.addItem(book);
         library.borrowItem(101);
         outContent.reset();
         library.borrowItem(101);
-        String expectedOutput = "Sorry, 'The Hobbit' is currently unavailable." + System.lineSeparator();
+        String expectedOutput = "Sorry, 'Meow Book' is currently unavailable." + System.lineSeparator();
         assertEquals(expectedOutput, outContent.toString());
         assertFalse(book.isAvailable(), "Book should remain unavailable.");
     }
@@ -74,7 +74,7 @@ public class LibraryTest {
 
     @Test
     public void testReturnAvailableItem() {
-        Book book = new Book(101, "The Hobbit", "Tolkien", 310, "path/to/hobbit.pdf");
+        Book book = new Book(101, "Meow Book", "Me. Owmeow", 45, "media/books/Meow-Book.pdf");
         library.addItem(book);
         outContent.reset();
         library.returnItem(101);
@@ -92,8 +92,8 @@ public class LibraryTest {
 
     @Test
     public void testDisplayAllItems() {
-        library.addItem(new Book(101, "The Hobbit", "Tolkien", 310, "path/to/hobbit.pdf"));
-        library.addItem(new Audiobook(201, "Dune", "Herbert", 1260, "path/to/dune.mp3"));
+        library.addItem(new Book(101, "Meow Book", "Me. Owmeow", 45, "media/books/Meow-Book.pdf"));
+        library.addItem(new Audiobook(201, "Harry Potter", "J.K. Rowling", 1320, "media/audiobooks/Harry-Potter.mp3"));
         library.borrowItem(101);
         outContent.reset();
 
@@ -101,8 +101,8 @@ public class LibraryTest {
 
         String output = outContent.toString().replace("\r\n", "\n");
         assertTrue(output.contains("--- Library Catalog Status ---"));
-        assertTrue(output.contains("ID: 101 | Title: The Hobbit | Status: On Loan"));
-        assertTrue(output.contains("ID: 201 | Title: Dune | Status: Available"));
+        assertTrue(output.contains("ID: 101 | Title: Meow Book | Status: On Loan"));
+        assertTrue(output.contains("ID: 201 | Title: Harry Potter | Status: Available"));
         assertTrue(output.contains("----------------------------"));
     }
 

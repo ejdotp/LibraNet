@@ -13,7 +13,7 @@ public class AudiobookTest {
 
     @BeforeEach
     public void setUp() {
-        audiobook = new Audiobook(201, "Dune", "Frank Herbert", 1260, "media/audiobooks/Dune-Audiobook.mp3");
+        audiobook = new Audiobook(201, "Harry Potter", "J.K. Rowling", 1320, "media/audiobooks/Harry-Potter.mp3");
         System.setOut(new PrintStream(outContent));
     }
 
@@ -25,8 +25,8 @@ public class AudiobookTest {
     @Test
     public void testAudiobookCreation() {
         assertEquals(201, audiobook.getId());
-        assertEquals("Dune", audiobook.getTitle());
-        assertEquals(1260, audiobook.getDuration());
+        assertEquals("Harry Potter", audiobook.getTitle());
+        assertEquals(1320, audiobook.getDuration());
         assertTrue(audiobook.isAvailable());
     }
 
