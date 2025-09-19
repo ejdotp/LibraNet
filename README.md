@@ -177,20 +177,20 @@ LibraNet/
 
 Here are a few screenshots demonstrating the interactive command-line interface in action.
 
-**1. The Main Menu**
-*The user is presented with a clear and comprehensive list of options.*
+**1. The Main Menu**  
+*The user is presented with a clear and comprehensive list of options.*  
 ![Main Menu Screenshot](./assets/1.png)
 
-**2. Listing Items by Type**
-*The application allows users to filter the library catalog by item type and then provides a streamlined option to open a file directly from the filtered list.*
+**2. Listing Items by Type**  
+*The application allows users to filter the library catalog by item type and then provides a streamlined option to open a file directly from the filtered list.*  
 ![Filtered List View Screenshot](./assets/2.png)
 
-**3. Borrowing & Returning an Item**
-*Streamlined inventory management.*
+**3. Borrowing & Returning an Item**  
+*Streamlined inventory management.*  
 ![Borrowing & Returning Screenshot](./assets/3.png)
 
-**4. Fine Calculation**
-*Uses Date APIs to record borrow and due dates and calculates fine while ensuring borrow and due condition checks.*
+**4. Fine Calculation**  
+*Uses Date APIs to record borrow and due dates and calculates fine while ensuring borrow and due condition checks.*  
 ![Fine Calculation Screenshot](./assets/4.png)
 
 ---
