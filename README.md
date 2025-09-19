@@ -1,6 +1,6 @@
 # LibraNet - A Java Library Management System
 
-Project by [Your Name]
+Project by E. Jagadeeswar Patro
 Date: September 19, 2025
 
 ---
