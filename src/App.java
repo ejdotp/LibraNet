@@ -58,6 +58,7 @@ public class App {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
+                sc.next(); // Clear the invalid input from the sc
             }
         }
     }
@@ -109,25 +110,33 @@ public class App {
                 return;
             }
 
-            System.out.print("\nWould you like to open an item from this list? (y/n): ");
-            String openChoice = sc.next();
+            while (true) {
+                System.out.print("\nEnter the ID of an item to open (or 'n' to go back): ");
+                String input = sc.next();
 
-            if (openChoice.equalsIgnoreCase("y")) {
-                System.out.print("Enter the ID of the item to open: ");
-                int openId = sc.nextInt();
-                LibraryItem itemToOpen = library.findItemById(openId);
+                if (input.equalsIgnoreCase("n")) {
+                    return;
+                }
 
-                if (itemToOpen != null && itemType.isInstance(itemToOpen)) {
-                    itemToOpen.openMedia();
-                } else if (itemToOpen == null) {
-                    System.out.println("Item with ID " + openId + " not found.");
-                } else {
-                    System.out.println("Error: Item " + openId + " is not a " + typeName + ".");
+                try {
+                    int openId = Integer.parseInt(input);
+                    LibraryItem itemToOpen = library.findItemById(openId);
+
+                    if (itemToOpen != null && itemType.isInstance(itemToOpen)) {
+                        itemToOpen.openMedia();
+                        break;
+                    } else if (itemToOpen == null) {
+                        System.out.println("Item with ID " + openId + " not found.");
+                    } else {
+                        System.out.println("Error: Item " + openId + " is not a " + typeName
+                                + ". Please choose from the list above.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input. Please enter a valid ID number or 'n'.");
                 }
             }
-
         } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Please enter a number.");
+            System.out.println("Invalid input. Please enter a number for the type choice.");
             sc.next();
         }
     }
