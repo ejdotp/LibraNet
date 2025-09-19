@@ -10,9 +10,11 @@ classDiagram
         #String title
         #String author
         #boolean isAvailable
+        #String filePath
         +borrowItem()*
         +returnItem()*
         +isAvailable() boolean
+        +openMedia()
     }
 
     class Playable {
