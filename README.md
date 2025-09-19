@@ -55,10 +55,13 @@ direction TB
         #String author
         #boolean isAvailable
         #String filePath
+        #LocalDate borrowDate
+        #LocalDate dueDate
         +borrowItem()*
         +returnItem()*
         +isAvailable() boolean
         +openMedia()
+        +getDueDate() LocalDate
     }
 
     class Playable {
@@ -70,6 +73,7 @@ direction TB
     class Book {
         -int pageCount
         +getPageCount() int
+        +read()
     }
 
     class Audiobook {
@@ -81,13 +85,17 @@ direction TB
     class EMagazine {
         -int issueNumber
         +archiveIssue()
+        +read()
     }
     
     class Library {
-        -List~LibraryItem~ items
+        -Map~Integer, LibraryItem~ catalog
         +addItem(LibraryItem item)
         +findItemById(int itemId) LibraryItem
-        +calculateFine(LibraryItem item) double
+        +borrowItem(int itemId)
+        +returnItem(int itemId)
+        +displayAllItems()
+        +calculateFine(int itemId) double
     }
 
     LibraryItem <|-- Book
