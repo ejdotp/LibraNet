@@ -166,7 +166,6 @@ LibraNet/
 
 ## 🔮 Future Improvements
 
-- **Fine Calculation:** Implement logic to track borrowing duration and calculate late fees.
 - **User Accounts:** Add a `User` class to associate borrowed items with specific users.
 - **Persistence:** Integrate a database (like SQLite) or file-based storage (like JSON) to save the library's state between sessions.
 - **Search Functionality:** Enhance the `Library` class with methods to search for items by title or author, not just ID.
